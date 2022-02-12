@@ -1,6 +1,5 @@
 module.exports = readmeData => {
     const fs = require("fs");
-    console.log(readmeData);
 
     const {
         name: name,
@@ -13,9 +12,7 @@ module.exports = readmeData => {
         license: license,
         contributions: contributions,
         testinstructions: tests
-      } = portfolioData
-
-      console.log(contributions)
+      } = readmeData
   
       return `
       # ${projectTitle}

@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
-const generateReadme = require('./src/template.js');
+const genReadme = require('./src/template.js');
+const saveFile = require('./utils/generatefile.js')
 
 const setupReadme = (creatorInfo) => {
     console.clear();
@@ -127,7 +128,8 @@ const setupReadme = (creatorInfo) => {
 
 setupReadme()
     .then(projectData => {
-        const genReadme = generateReadme(projectData);
+        return genReadme(projectData);
     })
-
-console.log(genReadme);
+    .then(createFile => {
+        return saveFile(createFile);
+    })
