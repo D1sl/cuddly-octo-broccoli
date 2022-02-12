@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "name": "cuddly-octo-broccoli",
+  "description": "Readme generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D1sl/cuddly-octo-broccoli.git"
+  },
+  "author": "Benjamin Molini Vilhunen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/D1sl/cuddly-octo-broccoli/issues"
+  },
+  "homepage": "https://github.com/D1sl/cuddly-octo-broccoli#readme"
+}
