@@ -132,15 +132,13 @@ const setupReadme = () => {
         {
             type: 'input',
             name: 'contributions',
-            message: 'List the GitHub usernames that contributed to this project',
-            suffix: ' (required, separated by commas)',
+            message: 'What are the guidelines for contribution on this project?',
         },
-        // Test instructions
         {
             type: 'input',
             name: 'testinstructions',
             message: 'Describe how to run tests on the project',
-            suffix: ' (Required, separated by commas)',
+            suffix: ' (required)',
         },
     ])
     .then(data => {

@@ -1,3 +1,4 @@
+// Needed: , , , , contribution guidelines and test instructions
 
 const genInstall = installCont => {
   if (!installCont) {
@@ -7,13 +8,47 @@ const genInstall = installCont => {
   }
 }
 
+const checkInstall = check => {
+  if (!check) {
+    return '';
+  } else {
+    return `* [Installation](#Installation)`
+  }
+}
+
 const genContribute = contributeCont => {
   if (!contributeCont) {
     return ''
   } else {
     return `
-  ## Installation
-  ${installCont}`
+  ## Contribution
+  ${contributeCont}`
+  }
+}
+
+const checkContribute = check => {
+  if (!check) {
+    return ''
+  } else {
+    return `* [Contribution guidelines](#Contribution)`
+  }
+}
+
+const genTesting = testingCont => {
+  if (!testingCont) {
+    return ''
+  } else {
+    return `
+  ## Testing
+  ${contributeCont}`
+  }
+}
+
+const checkTesting = check => {
+  if (!check) {
+    return ''
+  } else {
+    return `* [Testing](#Testing)`
   }
 }
 
@@ -22,9 +57,17 @@ function generateReadmeContent(data) {
 
   return `  
   # ${data.title}
+  ![License]( https://img.shields.io/badge/License-${data.license}-green)
+ 
 
   ## Description
   ${data.description}
+
+  ## Table of Contents
+  ${checkInstall(data.installinstructions)}
+  * [Usage](#Usage)
+  * [License](#License)
+  ${checkContribute(data.contributions)}
 
   ${genInstall(data.installinstructions)}
 
@@ -34,8 +77,9 @@ function generateReadmeContent(data) {
   ## License
   This project was developed under the ${data.license} license.
 
-  ## Testing
-  ${data.testinginstructions}
+  ${genContribute(data.contributions)}
+
+  ${genTesting(data.testing)}
 
 
   `
