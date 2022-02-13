@@ -1,8 +1,8 @@
 const inquirer = require("inquirer");
-const genReadme = require('./src/template.js');
-const saveFile = require('./utils/generatefile.js')
+const generateReadmeContent = require('./src/generatecontent.js');
+const generateFile = require('./src/generatefile');
 
-const setupReadme = (creatorInfo) => {
+const setupReadme = () => {
     console.clear();
     console.log(`
 ================================================
@@ -43,13 +43,27 @@ const setupReadme = (creatorInfo) => {
         {
             type: 'input',
             name: 'title',
-            message: 'What is the title of your project?',
+            message: 'What is the name of your project?',
             suffix: ' (Required)',
             validate: titleInput => {
                 if (titleInput) {
                     return true;
                 } else {
                     console.log('Please enter the project title!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'repo',
+            message: 'What is the repository name of this project?',
+            suffix: ' (Required, replace spaces with dashes)',
+            validate: titleInput => {
+                if (titleInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the project repository!');
                     return false;
                 }
             }
@@ -69,15 +83,22 @@ const setupReadme = (creatorInfo) => {
             }
         },
         {
-            type: 'checkbox',
-            name: 'readme_sections',
-            message: 'Choose which sections you would like to include in your README',
-            choices: ['Installation', 'Usage', 'License', 'Contributing', 'Tests', 'Questions']
+            type: 'confirm',
+            name: 'installRequired',
+            message: 'Does the project require special installation to run?',
+            default: true
         },
         {
             type: 'input',
             name: 'installinstructions',
             message: 'Enter instructions on how to install the project',
+            when: ({ installRequired }) => {
+                if (installRequired) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
             validate: descriptionInput => {
                 if (descriptionInput) {
                     return true;
@@ -122,14 +143,19 @@ const setupReadme = (creatorInfo) => {
             suffix: ' (Required, separated by commas)',
         },
     ])
+    .then(data => {
+        return generateReadmeContent(data);
+    })
+    .then(genFile => {
+        return generateFile(genFile);
+    })
+    .catch(err => {
+        console.log(err);
+    })
 }
 
+function init() {
+    setupReadme();
+}
 
-
-setupReadme()
-    .then(projectData => {
-        return genReadme(projectData);
-    })
-    .then(createFile => {
-        return saveFile(createFile);
-    })
+init();
