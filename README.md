@@ -1,11 +1,20 @@
-
-  ![GitHub](https://img.shields.io/github/license/d1sl/miniature-garbanzo)
   
-  # Weather Dashboard
+  # The name
 
   ## Description
-  asddasdas das das dasdas dasads
+  asd
 
-  
+  ## Installation 
+ Installation instructions
+
+  ## Usage
+  Usage
+
+  ## License
+  This project was developed under the MIT license.
+
+  ## Testing
+  undefined
+
 
   

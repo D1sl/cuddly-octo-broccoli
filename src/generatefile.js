@@ -6,6 +6,8 @@ const generateFile = file => {
       if (err) {
         reject (err);
         return;
+      } else {
+        console.log("File created!");
       }
 
       resolve({

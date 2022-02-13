@@ -98,7 +98,7 @@ const setupReadme = () => {
                 } else {
                     return false;
                 }
-            }
+            },
             validate: descriptionInput => {
                 if (descriptionInput) {
                     return true;
