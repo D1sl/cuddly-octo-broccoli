@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/D1sl/cuddly-octo-broccoli/issues"
   },
-  "homepage": "https://github.com/D1sl/cuddly-octo-broccoli#readme"
+  "homepage": "https://github.com/D1sl/cuddly-octo-broccoli#readme",
+  "devDependencies": {}
 }
