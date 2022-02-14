@@ -19,6 +19,20 @@ const questions = [
     },
     {
         type: 'input',
+        name: 'email',
+        message: 'Enter your Email address',
+        suffix: ' (Required)',
+        validate: emailInput => {
+            if (emailInput) {
+                return true;
+            } else {
+                console.log('Please enter your Email address!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
         name: 'title',
         message: 'What is the name of your project?',
         suffix: ' (Required)',
@@ -27,20 +41,6 @@ const questions = [
                 return true;
             } else {
                 console.log('Please enter the project title!');
-                return false;
-            }
-        }
-    },
-    {
-        type: 'input',
-        name: 'repo',
-        message: 'What is the repository name of this project?',
-        suffix: ' (Required, replace spaces with dashes)',
-        validate: titleInput => {
-            if (titleInput) {
-                return true;
-            } else {
-                console.log('Please enter the project repository!');
                 return false;
             }
         }
@@ -153,3 +153,6 @@ init()
     .then(readmeData => {
         return generateMarkdown(readmeData)
     })
+    // .then((completedReadme) => {
+    //     return writeToFile(completedReadme);
+    // })

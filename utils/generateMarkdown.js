@@ -10,18 +10,60 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license === "None") {
+    return "";
+  } else {
+    return `[More information about ${license}](https://opensource.org/licenses/${license})`
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license === "None") {
+    return ["", ""];
+  } else {
+    return [`## License \nThis project was developed under the ${license} license.`, `* [License](#License)`];
+  }
+}
+
+function renderInstallSection(install) {
+  if (!install) {
+    return ["", ""];
+  } else {
+    return [`## Installation \n${install}`, `* [Installation](#Installation)`];
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  console.log(`# ${data.title}
+  console.log(`
+# ${data.title}
   
-  ${renderLicenseBadge(data.license)}
+${renderLicenseBadge(data.license)}
 
+## Description
+${data.description}
+
+## Table of Contents
+${renderInstallSection(data.installinstructions)[1]}
+* [Usage](#Usage)
+${renderLicenseSection(data.license)[1]}
+* [Contributions](#Contributions)
+* [Questions](#Questions)
+
+## Usage
+${data.usage}
+
+${renderLicenseSection(data.license)[0]}
+${renderLicenseLink(data.license)}
+
+## Contributions
+${data.contributions}
+
+## Questions
+You may direct any questions about the project to [${data.github}](https://github.com/${data.github}), via email: [${data.email}](mailto:${data.email}).
   `)
 //   return `# loaded
 
