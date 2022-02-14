@@ -123,10 +123,12 @@ function writeToFile(fileName, data) {
     return new Promise((resolve, reject) => {
         fs.writeFile(fileName, data, err => {
             if (err) {
+                console.clear();
+                console.log("There was an error, no file was created.");
                 reject(err);
-                console.log("No file was created.")
                 return;
             } else {
+                console.clear();
                 console.log("File created!");
             }
 
@@ -153,6 +155,6 @@ init()
     .then(readmeData => {
         return generateMarkdown(readmeData)
     })
-    // .then((completedReadme) => {
-    //     return writeToFile(completedReadme);
-    // })
+    .then((completedReadme) => {
+        return writeToFile('./readme/README.md', completedReadme);
+    })
