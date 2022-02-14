@@ -1,7 +1,9 @@
+// Load required modules
 const inquirer = require("inquirer");
 const generateMarkdown = require('./utils/generateMarkdown.js');
 const fs = require('fs');
 
+// Questions
 const questions = [
     {
         type: 'input',
@@ -59,12 +61,14 @@ const questions = [
             }
         }
     },
+    // Ask if the app requires any specific installation to run
     {
         type: 'confirm',
         name: 'installRequired',
         message: 'Does the project require special installation to run?',
         default: true
     },
+    // ...if yes, ask the question
     {
         type: 'input',
         name: 'installinstructions',
@@ -119,6 +123,7 @@ const questions = [
     },
 ]
 
+// Write returned data to a README file
 function writeToFile(fileName, data) {
     return new Promise((resolve, reject) => {
         fs.writeFile(fileName, data, err => {
@@ -140,7 +145,7 @@ function writeToFile(fileName, data) {
     });
 };
 
-
+// Function to initialize the app
 function init() {
     console.clear();
     console.log(`
@@ -151,6 +156,7 @@ function init() {
     return inquirer.prompt(questions);
 };
 
+// Function call to initialize the app
 init()
     .then(readmeData => {
         return generateMarkdown(readmeData)

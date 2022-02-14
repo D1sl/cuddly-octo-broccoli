@@ -20,6 +20,7 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
+// If license exists, generate the section and a ToC link
 function renderLicenseSection(license) {
   if (license === "None") {
     return ["", ""];
@@ -28,6 +29,7 @@ function renderLicenseSection(license) {
   }
 }
 
+// If installation instructions exist, generate the section and a ToC link
 function renderInstallSection(install) {
   if (!install) {
     return ["", ""];
