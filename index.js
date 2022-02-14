@@ -150,6 +150,6 @@ function init() {
 };
 
 init()
-    .then(data => {
-        console.log(data);
+    .then(readmeData => {
+        return generateMarkdown(readmeData)
     })
