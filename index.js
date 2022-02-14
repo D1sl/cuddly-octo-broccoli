@@ -104,7 +104,7 @@ const questions = [
         name: 'license',
         message: 'What license would you like to apply to this project?',
         suffix: ' (Required)',
-        choices: ['MIT', 'GNU', 'Apache']
+        choices: ['MIT', 'GNU', 'Apache', 'None']
     },
     {
         type: 'input',
