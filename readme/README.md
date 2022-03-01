@@ -1,27 +1,26 @@
 
-# Readme generator
+# super-duper-giggle-wk10
   
-![License](https://img.shields.io/badge/License-GNU-green)
+No license
 
 ## Description
-This is a javascript app running on NODE.js that enables a user to create a polished README.md quickly. 
+This is my submission to the Vanderbilt Coding Bootcamp Week 10 challenege
 
 ## Table of Contents
 * [Installation](#Installation)
 * [Usage](#Usage)
-* [License](#License)
+
 * [Contributions](#Contributions)
 * [Questions](#Questions)
 
 ## Usage
-Creates a README.md
+This application creates a team profile page.
 
-## License 
-This project was developed under the GNU license.
-[More information about GNU](https://opensource.org/licenses/GNU)
+
+
 
 ## Contributions
-No contributions are accepted at the time
+No contributions are accepted at this time.
 
 ## Questions
 You may direct any questions about the project to [D1sl](https://github.com/D1sl), via email: [benjamin@molini.fi](mailto:benjamin@molini.fi).
